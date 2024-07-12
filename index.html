@@ -3,82 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Rock-Paper-Scissors</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <script>
-      function getComputerChoice() {
-        return Math.floor(Math.random() * 2);
-      }
+    <div class="wrapper">
+      <!-- Text container -->
+      <div class="title">ROCK PAPER SCISSORS</div>
 
-      function getHumanChoice() {
-        let choice = prompt("Enter your choice (rock, paper, or scissors): ");
-        choice = choice.toLowerCase();
-        if (choice === "rock") {
-          choice = 0;
-        } else if (choice === "paper") {
-          choice = 1;
-        } else if (choice === "scissors") {
-          choice = 2;
-        } else {
-          choice = "You did not enter the correct option.";
-        }
-        return choice;
-      }
+      <div class="screen-wrap">
+        <div class="screen1">Let's Play!</div>
+      </div>
+      <!-- Buttons container -->
+      <div class="buttons">
+        <button id="b_rock">
+          <img src="images/rock-svgrepo-com.svg" alt="rock" />
+        </button>
+        <button id="b_paper">
+          <img
+            src="images/page-document-smile-emoji-happy-svgrepo-com.svg"
+            alt="paper"
+          />
+        </button>
+        <button id="b_scissors">
+          <img src="images/scissors-svgrepo-com.svg" alt="scissors" />
+        </button>
+      </div>
 
-      let humanScore = 0;
-      let computerScore = 0;
-      let draw = 0;
-
-      function playRound(humanChoice, computerChoice) {
-        let result = "";
-        if (humanChoice === computerChoice) {
-          result = "It is a Draw!";
-          draw++;
-        } else if (humanChoice === 0 && computerChoice === 2) {
-          result = "Computer chose Scissors! \nYou win! Rock beats Scissors!";
-          humanScore++;
-        } else if (humanChoice === 1 && computerChoice === 0) {
-          result = "Computer chose Rock! \nYou win! Paper beats Rock!";
-          humanScore++;
-        } else if (humanChoice === 2 && computerChoice === 1) {
-          result = "Computer chose Paper! \nYou win! Scissors beat Paper!";
-          humanScore++;
-        } else if (humanChoice === 0 && computerChoice === 1) {
-          result = "Computer chose Paper! \nComputer wins! Paper beats Rock!";
-          computerScore++;
-        } else if (humanChoice === 1 && computerChoice === 2) {
-          result =
-            "Computer chose Paper! \nComputer wins! Scissors beat Paper!";
-          computerScore++;
-        } else if (humanChoice === 2 && computerChoice === 0) {
-          result = "Computer chose Rock! \nComputer wins! Rock beats Scissors!";
-          computerScore++;
-        }
-        return result;
-      }
-
-      function playGame() {
-        for (let i = 0; i < 5; i++) {
-          let humanSelection = getHumanChoice();
-          let computerSelection = getComputerChoice();
-          console.log(playRound(humanSelection, computerSelection));
-        }
-
-        return (
-          "Computer won " +
-          computerScore +
-          " time(s)." +
-          "\nYou won " +
-          humanScore +
-          " time(s)." +
-          "\nDraw happened " +
-          draw +
-          " time(s)."
-        );
-      }
-
-      console.log(playGame());
-    </script>
+      <div class="screen-wrap">
+        <div class="screen2">Play 5 games to see who won!</div>
+      </div>
+    </div>
+    <script src="script.js"></script>
   </body>
 </html>
